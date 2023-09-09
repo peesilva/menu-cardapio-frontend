@@ -13,7 +13,7 @@
     z-index: 999;
 }
 
-.modal-overlay .modal-body {
+.modal-overlay .subtitulo {
     background-color: white;
     padding: 24px;
     height: 60%;
@@ -21,20 +21,20 @@
     border-radius: 24px;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.modal-overlay .modal-body h2 {
+.modal-overlay .subtitulo h2 {
     font-size: 32px;
 }
 
-.modal-overlay .modal-body .input-container {
+.modal-overlay .subtitulo .input-container {
     width: calc(100% - 24px);
 }
 
-.modal-overlay .modal-body input {
+.modal-overlay .subtitulo input {
     padding: 12px;
     border: 2px solid #c6c5c5c5;
     color: rgba(0,0,0,0.9);
@@ -46,20 +46,40 @@
     margin-bottom: 12px;
 }
 
-.modal-overlay .modal-body label {
-    color: #242424;
+.modal-overlay .subtitulo label {
+    color: #000000;
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 18px;
 }
 
-.modal-overlay .modal-body .btn-secondary {
-    position: initial;
-    width: 100%;
-    margin-top: 32px;
+.modal-overlay .subtitulo .btn-postar {
+    position: relative;
+    align-items: center;
+    width: 26%;
+    margin-top: 40px;
+    margin-inline: 50px;
 }
 
-.modal-overlay .modal-body .btn-secondary:hover {
+.modal-overlay .subtitulo .btn-postar:hover {
     background-color: #3a44f8;
     transform: scale(1);
+}
+
+.modal-overlay .subtitulo .btn-voltar {
+    position: relative;
+    align-items: center;
+    width: 25%;
+    margin-inline-end: 50px;
+}
+
+.modal-overlay .subtitulo .btn-voltar:hover {
+    background-color: #3a44f8;
+    transform: scale(1);
+}
+
+.titulo {
+    color: black;
+    align-items: center;
+    
 }

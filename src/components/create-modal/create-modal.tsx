@@ -29,13 +29,17 @@ export function CreateModal({ closeModal }: ModalProps){
     const [image, setImage] = useState("");
     const { mutate, isSuccess, isLoading } = useFoodDataMutate();
 
-    const submit = () => {
-        const foodData: FoodData = {
-            title, 
-            price,
-            image
-        }
-        mutate(foodData)
+
+    const handleVoltar = () => {
+        window.location.reload();
+      };
+      const handleSubmit = () => {
+          const foodData: FoodData = {
+              title, 
+              price,
+              image
+          }
+          mutate(foodData)
     }
 
     useEffect(() => {
@@ -45,16 +49,22 @@ export function CreateModal({ closeModal }: ModalProps){
 
     return(
         <div className="modal-overlay">
-            <div className="modal-body">
-                <h2>Cadastre um novo item no cardápio</h2>
+            <div className="subtitulo">
+                <div className='titulo'>
+                <h2>Anuncie um novo carro</h2> </div>
                 <form className="input-container">
-                    <Input label="title" value={title} updateValue={setTitle}/>
-                    <Input label="price" value={price} updateValue={setPrice}/>
-                    <Input label="image" value={image} updateValue={setImage}/>
+                    <Input label="titulo" value={title} updateValue={setTitle}/>
+                    <Input label="preco" value={price} updateValue={setPrice}/>
+                    <Input label="imagem" value={image} updateValue={setImage}/>
                 </form>
-                <button onClick={submit} className="btn-secondary">
+                <div className="botoes-container">
+                <button onClick={handleVoltar} className="btn-voltar">
+                    {isLoading ? 'voltando...' : 'voltar'}
+                </button>
+                <button onClick={handleSubmit} className="btn-postar">
                     {isLoading ? 'postando...' : 'postar'}
                 </button>
+                </div>
             </div>
         </div>
     )

@@ -15,10 +15,10 @@
 .container button {
     background-color: #0275d8;
     color: white;
-    font-weight: bold;
+    font-weight: lighter;
     position: fixed;
-    bottom: 16px;
-    right: 24px;
+    bottom: 14px;
+    right: 20px;
     transition: all 0.1s linear 0.1s;
 }
   
