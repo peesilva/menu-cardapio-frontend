@@ -5,7 +5,7 @@ import { FoodData } from '../interface/FoodData';
 const API_URL = 'http://localhost:8080';
 
 const postData = async (data: FoodData): AxiosPromise<any> => {
-    const response = axios.post(API_URL + '/food', data);
+    const response = axios.post(API_URL + '/carros', data);
     return response;
 }
 
