@@ -28,6 +28,7 @@ export function CreateModal({ closeModal }: ModalProps){
     const [price, setPrice] = useState(0);
     const [image, setImage] = useState("");
     const { mutate, isSuccess, isLoading } = useFoodDataMutate();
+    const [Id] = useState(0);
 
 
     const handleVoltar = () => {
@@ -37,7 +38,8 @@ export function CreateModal({ closeModal }: ModalProps){
           const foodData: FoodData = {
               title, 
               price,
-              image
+              image,
+              Id
           }
           mutate(foodData)
     }

@@ -21,6 +21,7 @@ function App() {
             price={foodData.price} 
             title={foodData.title} 
             image={foodData.image}
+            Id={foodData.Id}
           />
         )}
       </div>
