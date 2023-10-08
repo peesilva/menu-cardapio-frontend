@@ -26,6 +26,7 @@ function App() {
         )}
       </div>
       {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
+      <button className='excluir'>excluir carro</button>
       <button onClick={handleOpenModal}><h4>novo carro</h4></button>
     </div>
   )

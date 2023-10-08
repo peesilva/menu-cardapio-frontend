@@ -18,7 +18,6 @@
     font-weight: lighter;
     position: fixed;
     bottom: 14px;
-    right: 20px;
     transition: all 0.1s linear 0.1s;
 }
   
@@ -26,4 +25,13 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
     transform: scale(1.1);
 }
-  
+
+.excluir {
+    font-weight: lighter;
+    bottom: 14px;
+    left: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+    transform: scale(1.1);
+}
+ 
+
