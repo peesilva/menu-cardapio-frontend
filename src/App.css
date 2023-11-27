@@ -33,5 +33,12 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
     transform: scale(1.1);
 }
+.novo {
+    font-weight: lighter;
+    bottom: 14px;
+    right: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+    transform: scale(1.1);
+}
  
 
