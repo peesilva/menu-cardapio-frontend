@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import { IdData } from '../interface/IdData';
 
 const API_URL = 'http://localhost:8080';
 
