@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useFoodDataMutate } from '../../hooks/useFoodDataMutate';
-import { FoodData } from '../../interface/FoodData';
+import { useDeleteFoodData } from '../../hooks/useFoodDataDELETE';
+import { IdData } from '../../interface/IdData';
 
 
 interface InputProps {
@@ -23,30 +23,22 @@ const Input = ({ label, value, updateValue }: InputProps) => {
 }
 
 export function DeleteModal({ closeModal }: ModalProps){
-    const [title, setTitle] = useState("");
-    const [price] = useState(0);
-    const [image] = useState("");
-    const { mutate, isSuccess, isLoading } = useFoodDataMutate();
-    const [Id] = useState(1);
-
+    const [carId, setCarId] = useState(1); // Renomeie 'Id' para 'carId'
+    const { mutate, isSuccess, isLoading } = useDeleteFoodData();
 
     const handleVoltar = () => {
         window.location.reload();
-      };
-      const handleSubmit = () => {
-          const foodData: FoodData = {
-              title, 
-              price,
-              image,
-              Id
-          }
-          mutate(foodData)
-    }
+    };
+    
+    const handleSubmit = () => {
+        mutate(carId); // Passa apenas o número do ID
+    };
 
     useEffect(() => {
         if(!isSuccess) return 
         closeModal();
-    }, [isSuccess])
+    }, [isSuccess]);
+
 
     return(
         <div className="modal-overlay">
@@ -54,7 +46,7 @@ export function DeleteModal({ closeModal }: ModalProps){
                 <div className='titulo'>
                 <h2>Deletar veiculo aqui</h2> </div>
                 <form className="input-container">
-                    <Input label="insira  o id que deseja deletar" value={title} updateValue={setTitle}/>
+                    <Input label="insira  o id que deseja deletar" value={carId} updateValue={setCarId}/>
                 </form>
                 <div className="botoes-container">
                 <button onClick={handleVoltar} className="btn-voltar">

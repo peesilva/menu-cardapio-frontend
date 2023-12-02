@@ -1,27 +1,34 @@
-import axios from "axios"
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import { IdData } from '../interface/IdData';
 
 const API_URL = 'http://localhost:8080';
 
-const fetchData = async (id: number) => {
-    try {
-        const response = await axios.get(`${API_URL}/carros/${id}`);
-        return response.data;   
-    } catch (error) {
-        // Trate os erros adequadamente, como lançar ou retornar um erro para ser tratado externamente.
-        console.error('Erro ao buscar os dados:', error);
-        throw new Error('Erro ao buscar os dados');
-    }
+// Ajuste na função para receber apenas o ID
+const deleteData = async (id: number): Promise<void> => {
+    await axios.delete(`${API_URL}/carros/${id}`);
 }
 
-// Agora você pode chamar a função fetchData com o ID fornecido pelo usuário
-const userID = 123; // Aqui você teria o ID fornecido pelo usuário
+export function useDeleteFoodData() {
+    const queryClient = useQueryClient();
 
-fetchData(userID)
-    .then(data => {
-        // Faça algo com os dados obtidos, por exemplo:
-        console.log('Dados obtidos:', data);
-    })
-    .catch(error => {
-        // Trate o erro caso ocorra
-        console.error('Erro ao buscar os dados:', error);
+    const deleteMutation = useMutation((id: number) => deleteData(id), {
+        onSuccess: () => {
+            queryClient.invalidateQueries(['food-data']);
+        }
     });
+
+    const deleteFood = async (id: number): Promise<void> => {
+        try {
+            await deleteMutation.mutateAsync(id);
+        } catch (error) {
+            console.error("Erro ao deletar o carro:", error);
+        }
+    };
+
+    return {
+        mutate: deleteFood,
+        isSuccess: deleteMutation.isSuccess,
+        isLoading: deleteMutation.isLoading,
+    };
+}
