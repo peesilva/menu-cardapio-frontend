@@ -36,10 +36,13 @@ export function CreateModal({ closeModal }: ModalProps){
       };
       const handleSubmit = () => {
           const foodData: FoodData = {
-              title, 
+              title,
               price,
               image,
-              Id
+              Id,
+              description: function (_arg0: string): unknown {
+                  throw new Error('Function not implemented.');
+              }
           }
           mutate(foodData)
     }
